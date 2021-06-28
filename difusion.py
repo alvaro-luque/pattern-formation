@@ -7,7 +7,7 @@ a=4.5
 difx=0.001
 dify=0.008
 eta=np.sqrt(difx/dify)
-#usamos supercriticalidad (peña)
+#Supercriticality;
 mu=0.98
 bcrit=(1+a*eta)**2
 b=bcrit*(mu+1)
@@ -20,7 +20,7 @@ T = 30.0  # total time
 dt = 0.01  # time step
 n = int(T / dt)  # number of iterations
 
-U = np.array(np.random.rand(size, size), dtype='float64')  #inicialización, ruido aleatorio entre 0 y 1
+U = np.array(np.random.rand(size, size), dtype='float64')  #Inicialization, random noise from 0 to 1.
 V = np.array(np.random.rand(size, size), dtype='float64')
 
 def laplacian(Z):
