@@ -7,7 +7,7 @@ def modelo(v,t,p):
 	[X, Y] = v
 	[k1, k2, k3, k4, A, B] = p
 	
-	# vector de ecuaciones f=[x',y']
+	# PDE vector f=[x',y'], see scipy.integrate documentation for more info on odeint.
 	f=[ k1*A-k2*B*X+k3*X**2*Y-k4*X , k2*B*X-k3*X**2*Y
 	 ]
 	
@@ -23,17 +23,17 @@ k4 = 0.05
 
 A = 1	
 B = 1.7
-Bcrit = k1**2*k3*A**2/(k2*k4**2)+k4/k2 #condición bcrit=a^2+1 con dimensiones
-#B=Bcrit
+Bcrit = k1**2*k3*A**2/(k2*k4**2)+k4/k2 #critical condition
+#B=Bcrit #uncomment for limit cycle simulations
 #a=(k1*np.sqrt(k3)*A)/(k4*np.sqrt(k4))
 #b=k2*B/k4
-print("Parámetros A,B, Bcritico: {0}, {1}, {2}".format( A,B,Bcrit))
-print("Punto fijo: ({0},{1}) ".format( (k1/k4)*A , k2*k4*B/(k1*k3*A)))
+print("Parameters A,B, Bcrit: {0}, {1}, {2}".format( A,B,Bcrit))
+print("Fixed point: ({0},{1}) ".format( (k1/k4)*A , k2*k4*B/(k1*k3*A)))
 p=[k1,k2,k3,k4,A,B]
-#condiciones iniciales
+#Initial conditions
 X0=1000
 Y0=1600
-print("Condiciones iniciales ({0},{1})".format(X0,Y0))
+print("Initial conditions ({0},{1})".format(X0,Y0))
 x0=X0*np.sqrt(k3/k4)
 y0=Y0*np.sqrt(k3/k4)
 w0=[X0,Y0]
